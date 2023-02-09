@@ -35,6 +35,8 @@ class Login extends React.Component {
 
   render() {
     const { name, email, isDisabled } = this.state;
+    const { history } = this.props;
+
     return (
       <div>
         <label>
@@ -65,6 +67,14 @@ class Login extends React.Component {
           onClick={ this.handleClick }
         >
           PLAY
+        </button>
+
+        <button
+          data-testid="btn-settings"
+          type="button"
+          onClick={ () => history.push('/settings') }
+        >
+          Settings
         </button>
       </div>
     );
