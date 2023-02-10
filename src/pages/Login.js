@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getTokenApi } from '../Api/fetchApi';
+import { ACTION_AVATAR } from '../redux/actions';
 
 class Login extends React.Component {
   state = {
@@ -27,8 +28,10 @@ class Login extends React.Component {
   };
 
   handleClick = async () => {
-    const { history } = this.props;
+    const { history, dispatch } = this.props;
+    const { email, name } = this.state;
     const token = await getTokenApi();
+    dispatch(ACTION_AVATAR(email, name));
     localStorage.setItem('token', token);
     history.push('/game');
   };
@@ -82,6 +85,7 @@ class Login extends React.Component {
 }
 
 Login.propTypes = {
+  dispatch: PropTypes.func.isRequired,
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
   }).isRequired,
