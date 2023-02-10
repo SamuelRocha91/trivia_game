@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Header from '../components/Header';
 
 const URL_BASE = 'https://opentdb.com/api.php?amount=5&token=';
+const TIMER = 1000;
 
 class Game extends React.Component {
   state = {
@@ -11,11 +12,38 @@ class Game extends React.Component {
     questionCurrent: [],
     index: 0,
     color: false,
+    time: 30,
+    isDisabled: false,
   };
 
   componentDidMount() {
     this.fetchQuestions();
+    this.timerFunction();
   }
+
+  componentDidUpdate() {
+    const { time } = this.state;
+    if (time === 0) {
+      clearInterval(this.timer);
+    }
+  }
+
+  timerFunction = () => {
+    this.timer = setInterval(() => {
+      const { time } = this.state;
+      if (time > 0 && time !== 1) {
+        this.setState((prevState) => ({
+          time: prevState.time - 1,
+        }));
+      }
+      if (time === 1) {
+        this.setState((prevState) => ({
+          time: prevState.time - 1,
+          isDisabled: true,
+        }));
+      }
+    }, TIMER);
+  };
 
   fetchQuestions = () => {
     const { history } = this.props;
@@ -78,7 +106,9 @@ class Game extends React.Component {
     const { questionCurrent,
       questions,
       index,
-      color } = this.state;
+      color,
+      time,
+      isDisabled } = this.state;
     return (
       <div>
         <Header />
@@ -96,12 +126,14 @@ class Game extends React.Component {
             >
               <button
                 style={ { border: color && borderColor } }
+                disabled={ isDisabled }
                 data-testid={ id }
                 onClick={ () => this.saveAnswer() }
               >
                 { answer }
               </button>
             </div>))}
+        <p>{ time }</p>
       </div>
     );
   }
