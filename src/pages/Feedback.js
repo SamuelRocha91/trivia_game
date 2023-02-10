@@ -26,9 +26,9 @@ class Feedback extends Component {
   }
 }
 
-const mapStateToProps = ({ players }) => ({
-  score: players.score,
-  assertions: players.assertions,
+const mapStateToProps = ({ player }) => ({
+  score: player.score,
+  assertions: player.assertions,
 });
 
 Feedback.propTypes = {
