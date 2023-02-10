@@ -7,7 +7,7 @@ const INITIAL_STATE = {
   gravatarEmail: '',
 };
 
-const players = (state = INITIAL_STATE, action) => {
+const player = (state = INITIAL_STATE, action) => {
   switch (action.type) {
   case SAVE_AVATAR:
     return {
@@ -19,4 +19,4 @@ const players = (state = INITIAL_STATE, action) => {
     return state;
   }
 };
-export default players;
+export default player;
