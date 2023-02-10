@@ -1,4 +1,4 @@
-// import  from '../actions/';
+import { SAVE_AVATAR } from '../actions';
 
 const INITIAL_STATE = {
   name: '',
@@ -9,8 +9,12 @@ const INITIAL_STATE = {
 
 const players = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-  case 'player':
-    return action.payload;
+  case SAVE_AVATAR:
+    return {
+      ...state,
+      gravatarEmail: action.payload.email,
+      name: action.payload.name,
+    };
   default:
     return state;
   }
