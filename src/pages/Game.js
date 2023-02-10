@@ -10,6 +10,7 @@ class Game extends React.Component {
     questions: [],
     questionCurrent: [],
     index: 0,
+    color: false,
   };
 
   componentDidMount() {
@@ -69,10 +70,15 @@ class Game extends React.Component {
 
   // função ensinada no seguinte site https://dev.to/codebubb/how-to-shuffle-an-array-in-javascript-2ikj, acesso 22:47 de 09/02/2023
 
+  saveAnswer = () => {
+    this.setState({ color: true });
+  };
+
   render() {
     const { questionCurrent,
       questions,
-      index } = this.state;
+      index,
+      color } = this.state;
     return (
       <div>
         <Header />
@@ -83,13 +89,15 @@ class Game extends React.Component {
             <h3 data-testid="question-text">{questions[index].question}</h3>
           </>)}
         { questionCurrent.length > 0 && questionCurrent
-          .map(({ answer, id }) => (
+          .map(({ answer, id, borderColor }) => (
             <div
               data-testid="answer-options"
               key={ id }
             >
               <button
+                style={ { border: color && borderColor } }
                 data-testid={ id }
+                onClick={ () => this.saveAnswer() }
               >
                 { answer }
               </button>
