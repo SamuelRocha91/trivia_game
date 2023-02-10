@@ -1,4 +1,4 @@
-import { SAVE_AVATAR } from '../actions';
+import { SAVE_AVATAR, SAVE_SCORE } from '../actions';
 
 const INITIAL_STATE = {
   name: '',
@@ -14,6 +14,11 @@ const player = (state = INITIAL_STATE, action) => {
       ...state,
       gravatarEmail: action.payload.email,
       name: action.payload.name,
+    };
+  case SAVE_SCORE:
+    return {
+      ...state,
+      score: state.score + action.payload,
     };
   default:
     return state;

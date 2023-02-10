@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Header from '../components/Header';
+import { ACTION_SCORE } from '../redux/actions';
 
 const URL_BASE = 'https://opentdb.com/api.php?amount=5&token=';
 const TIMER = 1000;
@@ -98,8 +99,28 @@ class Game extends React.Component {
 
   // função ensinada no seguinte site https://dev.to/codebubb/how-to-shuffle-an-array-in-javascript-2ikj, acesso 22:47 de 09/02/2023
 
-  saveAnswer = () => {
+  saveAnswer = (id, difficulty) => {
+    const { dispatch } = this.props;
+    const { time } = this.state;
+    let points = 0;
+    const ten = 10;
+    if (id.includes('correct-answer')) {
+      points = ten + (time * this.pointsdificulty(difficulty));
+    }
     this.setState({ color: true });
+    dispatch(ACTION_SCORE(points));
+    clearInterval(this.timer);
+  };
+
+  pointsdificulty = (difficulty) => {
+    const three = 3;
+    if (difficulty === 'hard') {
+      return three;
+    }
+    if (difficulty === 'medium') {
+      return 2;
+    }
+    return 1;
   };
 
   render() {
@@ -119,7 +140,7 @@ class Game extends React.Component {
             <h3 data-testid="question-text">{questions[index].question}</h3>
           </>)}
         { questionCurrent.length > 0 && questionCurrent
-          .map(({ answer, id, borderColor }) => (
+          .map(({ answer, id, borderColor, difficulty }) => (
             <div
               data-testid="answer-options"
               key={ id }
@@ -128,7 +149,7 @@ class Game extends React.Component {
                 style={ { border: color && borderColor } }
                 disabled={ isDisabled }
                 data-testid={ id }
-                onClick={ () => this.saveAnswer() }
+                onClick={ () => this.saveAnswer(id, difficulty) }
               >
                 { answer }
               </button>
@@ -143,6 +164,7 @@ Game.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
   }).isRequired,
+  dispatch: PropTypes.func.isRequired,
 };
 
 export default connect()(Game);
