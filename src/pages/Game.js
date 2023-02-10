@@ -15,7 +15,6 @@ class Game extends React.Component {
     color: false,
     time: 30,
     isDisabled: false,
-    yetHaveQuestion: true,
   };
 
   componentDidMount() {
@@ -103,6 +102,7 @@ class Game extends React.Component {
   saveAnswer = (id, difficulty) => {
     const { dispatch } = this.props;
     const { time } = this.state;
+
     let points = 0;
     const ten = 10;
     if (id.includes('correct-answer')) {
@@ -126,7 +126,12 @@ class Game extends React.Component {
 
   nextQuestion = () => {
     const { index } = this.state;
+    const { history } = this.props;
     const maxIndex = 3;
+    const maxIndexForFeedback = 4;
+    if (index === maxIndexForFeedback) {
+      history.push('/feedback');
+    }
     if (index < maxIndex) {
       this.setState((prevState) => ({
         questionCurrent: this.createArrayAndShuffle(),
@@ -143,7 +148,6 @@ class Game extends React.Component {
         time: 30,
         isDisabled: false,
       }), () => {
-        this.setState({ yetHaveQuestion: false });
         this.timerFunction();
       });
     }
@@ -156,7 +160,7 @@ class Game extends React.Component {
       color,
       time,
       isDisabled,
-      yetHaveQuestion } = this.state;
+    } = this.state;
     return (
       <div>
         <Header />
@@ -182,7 +186,7 @@ class Game extends React.Component {
               </button>
             </div>))}
         <p>{ time }</p>
-        {color && yetHaveQuestion && (
+        {color && (
           <button
             onClick={ this.nextQuestion }
             data-testid="btn-next"
