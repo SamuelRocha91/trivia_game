@@ -29,6 +29,12 @@ class Feedback extends Component {
         >
           Play Again
         </button>
+        <button
+          onClick={ () => history.push('/ranking') }
+          data-testid="btn-ranking"
+        >
+          Ranking
+        </button>
       </div>
     );
   }
