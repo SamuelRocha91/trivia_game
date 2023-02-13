@@ -100,6 +100,7 @@ class Game extends React.Component {
   };
 
   // função ensinada no seguinte site https://dev.to/codebubb/how-to-shuffle-an-array-in-javascript-2ikj, acesso 22:47 de 09/02/2023
+  // agora vai
 
   saveAnswer = (id, difficulty) => {
     const { dispatch } = this.props;
