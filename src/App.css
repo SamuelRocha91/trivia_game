@@ -68,7 +68,14 @@ input {
   padding: 10px;
 }
 
+.buttons-resp {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
 .buttonGame {
+  align-content: center;
   background-color: rgb(231, 238, 235);
   border-radius: 6px;
   display: flex;

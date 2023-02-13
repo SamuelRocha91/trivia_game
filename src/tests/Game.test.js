@@ -83,7 +83,7 @@ describe('Page Game', () => {
     userEvent.click(screen.getByTestId('correct-answer'))
     userEvent.click(screen.getByTestId('btn-next'))
 
-    expect(screen.getByTestId('header-score')).toHaveTextContent(70)
+    expect(screen.getByTestId('header-score')).toHaveTextContent(40)
 
 
     userEvent.click(screen.getByTestId('correct-answer'))
@@ -95,12 +95,12 @@ describe('Page Game', () => {
     userEvent.click(screen.getByTestId('correct-answer'))
     userEvent.click(screen.getByTestId('btn-next'))
 
-    expect(screen.getByTestId('header-score')).toHaveTextContent(180)
+    expect(screen.getByTestId('header-score')).toHaveTextContent(210)
 
 
     userEvent.click(screen.getByTestId('correct-answer'))
 
-    expect(screen.getByTestId('header-score')).toHaveTextContent(280)
+    expect(screen.getByTestId('header-score')).toHaveTextContent(310)
 
     const btnNext = screen.getByTestId('btn-next');
     userEvent.click(btnNext)
