@@ -21,7 +21,7 @@ class Feedback extends Component {
       localStorage.setItem('ranking', JSON.stringify(rankingObj));
     } else {
       const newLocalStorage = getLocalStorage.push(newObj);
-      localStorage.setItem('ranking', JSON.stringify(getLocalStorage));
+      localStorage.setItem('ranking', JSON.stringify(newLocalStorage));
     } history.push('/ranking');
   };
 
