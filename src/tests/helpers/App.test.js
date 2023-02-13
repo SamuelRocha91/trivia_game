@@ -75,5 +75,3 @@ describe('Page Settings', () => {
         expect(settingsName).toBeInTheDocument();
     });
 });
-
-
