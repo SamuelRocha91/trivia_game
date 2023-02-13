@@ -156,13 +156,21 @@ class Game extends React.Component {
       isDisabled,
     } = this.state;
     return (
-      <div>
+      <div id="divGame">
         <Header />
-        <h1>Página do Game</h1>
+        <h1 id="headOneGame">Página do Game</h1>
         { questionCurrent.length > 0 && (
           <>
-            <h3 data-testid="question-category">{questions[index].category}</h3>
-            <h3 data-testid="question-text">{questions[index].question}</h3>
+            <h3 className="questionCategory" data-testid="question-category">
+              {questions[index].category}
+            </h3>
+            <h3
+              className="questionAsk"
+              data-testid="question-text"
+            >
+              {questions[index].question}
+
+            </h3>
           </>)}
         { questionCurrent.length > 0 && questionCurrent
           .map(({ answer, id, borderColor, difficulty }) => (
@@ -171,6 +179,7 @@ class Game extends React.Component {
               key={ id }
             >
               <button
+                className="buttonGame"
                 style={ { border: color && borderColor } }
                 disabled={ isDisabled }
                 data-testid={ id }
@@ -182,6 +191,7 @@ class Game extends React.Component {
         <p>{ time }</p>
         {color && (
           <button
+            className="buttonNext"
             onClick={ this.nextQuestion }
             data-testid="btn-next"
           >

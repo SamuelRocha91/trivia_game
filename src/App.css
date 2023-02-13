@@ -1,63 +1,109 @@
 body {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  background-color: #2e2e2e;
 }
 
-.App {
+/* Página de Login */
+
+#headOneLogin {
+  color: aquamarine;
+  font-size: 80px;
+  text-align: center;
+  margin-top: 80px;
+  font-family:Arial, Helvetica, sans-serif;
+  margin-bottom: 0px;
+}
+
+.divInput {
+  display: flex;
+  text-align: center;
+  padding: 20px;
+  margin: 100px 400px;
+  flex-direction: column;
+  border-radius: 10px;
+  background-color: #c4c4c4;
+}
+
+.buttonLogin {
+  margin: 5px 150px;
+  background-color: rgb(58, 219, 162);
+  border-radius: 5px;
+}
+
+input {
+  margin: 3px;
+  border: 1px solid #E1E5EB;
+  border-radius: 5px;
   text-align: center;
 }
 
-.App-logo {
-  height: 15vmin;
-  pointer-events: none;
-}
+/* Página de game */
 
-.red-border {
-  border: 1px solid red;
-}
-
-.green-border {
-  border: 1px solid green;
-}
-
-@media ( prefers-reduced-motion : no-preference ) {
-
-  .App-logo {
-    animation: shake infinite 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
-  }
-}
-
-.App-header {
-  align-items: center;
-  background-color: #282c34;
-  color: white;
+#divGame {
   display: flex;
+  text-align: center;
+  padding: 20px;
+  margin: 100px 400px;
   flex-direction: column;
-  font-size: calc(10px + 2vmin);
-  justify-content: center;
-  min-height: 100vh;
+  border-radius: 10px;
+  background-color: #c4c4c4;
 }
 
-.App-link {
-  color: #61dafb;
+#headOneGame {
+  font-size: 40px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(53, 146, 115);
 }
 
-@keyframes shake {
+.questionCategory {
+  font-size: 20px;
+}
 
-  10%, 90% {
-    transform: translate3d(-1px, 0, 0);
-  }
+.questionAsk {
+  font-size: 20px;
+  margin-bottom: 30px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  background-color: #eee9e9ca;
+  border-radius: 10px;
+  padding: 10px;
+}
 
-  20%, 80% {
-    transform: translate3d(2px, 0, 0);
-  }
+.buttonGame {
+  width: 300px;
+  display: flex;
+  font-size: 15px;
+  background-color: rgb(231, 238, 235);
+  border-radius: 6px;
+  padding: 5px;
+  margin: 1px;
+}
 
-  30%, 50%, 70% {
-    transform: translate3d(-4px, 0, 0);
-  }
+.buttonNext {
+    background-color: rgb(58, 219, 162);
+    border-radius: 5px;
+    font-size: 25px;
+}
 
-  40%, 60% {
-    transform: translate3d(4px, 0, 0);
-  }
+/* Página de Feedback */
+
+#couldParag {
+  font-size: 30px;
+  color: #f03b3b;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#wellParag {
+  font-size: 30px;
+  color: #126f05;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.total {
+  font-size: 22px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Página de Ranking  */
+
+#headRanking {
+  font-size: 60px;
 }

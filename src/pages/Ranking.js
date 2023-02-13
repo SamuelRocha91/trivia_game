@@ -12,12 +12,12 @@ class Ranking extends Component {
     const readLocalStorage = JSON.parse(localStorage.getItem('ranking'));
     const sortLocalStorage = readLocalStorage.sort((a, b) => b.score - a.score);
     return (
-      <div>
-        <h2 data-testid="ranking-title">Ranking</h2>
+      <div id="divGame">
+        <h2 id="headRanking" data-testid="ranking-title">Ranking</h2>
         {sortLocalStorage.map((element, index) => (
           <div key="3">
             <img src={ element.picture } alt={ `Imagem do Jogador ${index + 1}` } />
-            <p>
+            <p className="total">
               Jogador
               {' '}
               {index + 1}
@@ -25,13 +25,14 @@ class Ranking extends Component {
               {' '}
               <span data-testid={ `player-name-${index}` }>{element.name}</span>
             </p>
-            <p>
+            <p className="total">
               Pontuação:
               <span data-testid={ `player-score-${index}` }>{element.score}</span>
             </p>
           </div>))}
 
         <button
+          className="buttonNext"
           data-testid="btn-go-home"
           onClick={ this.onClick }
         >
