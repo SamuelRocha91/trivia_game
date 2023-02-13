@@ -11,7 +11,8 @@ const player = (state = INITIAL_STATE, action) => {
   switch (action.type) {
   case SAVE_AVATAR:
     return {
-      ...state,
+      assertions: 0,
+      score: 0,
       gravatarEmail: action.payload.email,
       name: action.payload.name,
     };
