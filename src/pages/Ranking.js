@@ -49,4 +49,3 @@ Ranking.propTypes = {
 };
 
 export default connect()(Ranking);
-
