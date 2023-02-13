@@ -53,7 +53,7 @@ describe('Page Login', () => {
         expect(pathname).toBe("/settings");    
       });
 
-    test('Verifica se ao clicar no botão Play, redireciona para a página Game', () => {
+    test('Verifica se ao clicar no botão Play, redireciona para a página Game', async () => {
         const {history} = renderWithRouterAndRedux(<App/>);    
         const name = screen.getByTestId("input-player-name");    
         const email = screen.getByTestId("input-gravatar-email");    
@@ -62,6 +62,7 @@ describe('Page Login', () => {
         const btnPlay = screen.getByTestId("btn-play");
         expect(btnPlay).toBeInTheDocument();    
         userEvent.click(btnPlay);
+        const h1 = await screen.findByRole('heading', {level: 1, name: 'Página do Game'})
         const { pathname } = history.location;
         expect(pathname).toBe("/game");    
       });
@@ -73,18 +74,6 @@ describe('Page Settings', () => {
         const settingsName = screen.getByTestId('settings-title');
         expect(settingsName).toBeInTheDocument();
     });
-
-
 });
-
-describe('Page Game', () => {
-    test('Verifica se a page Settings é renderizada', () => {
-        renderWithRouterAndRedux(<Game />, { initialEntries: ['/game'], });
-        const settingsName = screen.getByRole('heading');
-        expect(settingsName).toBeInTheDocument();
-    });
-});
-
-
 
 
