@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import Header from '../components/Header';
 
 class Feedback extends Component {
   onClick = () => {
@@ -21,15 +22,15 @@ class Feedback extends Component {
     } else {
       const newLocalStorage = getLocalStorage.push(newObj);
       localStorage.setItem('ranking', JSON.stringify(getLocalStorage));
-      console.log(newLocalStorage);
     } history.push('/ranking');
   };
 
   render() {
-    const { assertions, score } = this.props;
+    const { assertions, score, history } = this.props;
     const three = 3;
     return (
       <div>
+        <Header />
         {assertions < three
           ? <p data-testid="feedback-text">Could be better...</p>
           : <p data-testid="feedback-text">Well Done!</p>}
@@ -50,7 +51,11 @@ class Feedback extends Component {
           Ranking
 
         </button>
-
+          onClick={ () => history.push('/') }
+          data-testid="btn-play-again"
+        >
+          Play Again
+        </button>
       </div>
     );
   }

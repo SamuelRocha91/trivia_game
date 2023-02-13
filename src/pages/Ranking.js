@@ -36,7 +36,6 @@ class Ranking extends Component {
           onClick={ this.onClick }
         >
           Voltar ao Início
-
         </button>
       </div>
     );
@@ -50,3 +49,4 @@ Ranking.propTypes = {
 };
 
 export default connect()(Ranking);
+
