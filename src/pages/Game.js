@@ -63,7 +63,6 @@ class Game extends React.Component {
 
   createArrayAndShuffle = () => {
     const { questions, index } = this.state;
-    console.log(questions);
     const arrayOfAnswers = [];
     const {
       correct_answer: correct,
@@ -71,13 +70,15 @@ class Game extends React.Component {
       difficulty,
     } = questions[index];
 
-    arrayOfAnswers.push({ answer: correct,
+    arrayOfAnswers.push({
+      answer: correct,
       id: 'correct-answer',
       borderColor: '3px solid rgb(6, 240, 15)',
       difficulty });
 
     incorrect.forEach((element, position) => {
-      arrayOfAnswers.push({ answer: element,
+      arrayOfAnswers.push({
+        answer: element,
         id: `wrong-answer-${position}`,
         borderColor: '3px solid red',
         difficulty });
@@ -127,36 +128,29 @@ class Game extends React.Component {
   nextQuestion = () => {
     const { index } = this.state;
     const { history } = this.props;
-    const maxIndex = 3;
     const maxIndexForFeedback = 4;
+
     if (index === maxIndexForFeedback) {
       history.push('/feedback');
     }
-    if (index < maxIndex) {
-      this.setState((prevState) => ({
+
+    this.setState((prevState) => ({
+      index: prevState.index + 1,
+    }), () => {
+      this.timerFunction();
+      this.setState({
         questionCurrent: this.createArrayAndShuffle(),
-        index: prevState.index + 1,
         color: false,
         time: 30,
         isDisabled: false,
-      }), this.timerFunction());
-    } else {
-      this.setState((prevState) => ({
-        questionCurrent: this.createArrayAndShuffle(),
-        index: prevState.index + 1,
-        color: false,
-        time: 30,
-        isDisabled: false,
-      }), () => {
-        this.timerFunction();
       });
-    }
+    });
   };
 
   render() {
     const { questionCurrent,
-      questions,
       index,
+      questions,
       color,
       time,
       isDisabled,
@@ -165,7 +159,7 @@ class Game extends React.Component {
       <div>
         <Header />
         <h1>Página do Game</h1>
-        { questions.length > 0 && (
+        { questionCurrent.length > 0 && (
           <>
             <h3 data-testid="question-category">{questions[index].category}</h3>
             <h3 data-testid="question-text">{questions[index].question}</h3>
