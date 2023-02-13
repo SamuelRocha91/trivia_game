@@ -3,6 +3,28 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 class Feedback extends Component {
+  onClick = () => {
+    const { history, name, score, gravatarEmail } = this.props;
+    const rankingObj = [{
+      name,
+      score,
+      picture: gravatarEmail,
+    }];
+    const newObj = {
+      name,
+      score,
+      picture: gravatarEmail,
+    };
+    const getLocalStorage = JSON.parse(localStorage.getItem('ranking'));
+    if (getLocalStorage === null) {
+      localStorage.setItem('ranking', JSON.stringify(rankingObj));
+    } else {
+      const newLocalStorage = getLocalStorage.push(newObj);
+      localStorage.setItem('ranking', JSON.stringify(getLocalStorage));
+      console.log(newLocalStorage);
+    } history.push('/ranking');
+  };
+
   render() {
     const { assertions, score } = this.props;
     const three = 3;
@@ -21,6 +43,14 @@ class Feedback extends Component {
           {' '}
           <span data-testid="feedback-total-question">{assertions}</span>
         </p>
+        <button
+          data-testid="btn-ranking"
+          onClick={ this.onClick }
+        >
+          Ranking
+
+        </button>
+
       </div>
     );
   }
@@ -29,11 +59,18 @@ class Feedback extends Component {
 const mapStateToProps = ({ player }) => ({
   score: player.score,
   assertions: player.assertions,
+  name: player.name,
+  gravatarEmail: player.gravatarEmail,
 });
 
 Feedback.propTypes = {
   assertions: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
   score: PropTypes.number.isRequired,
+  gravatarEmail: PropTypes.string.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 export default connect(mapStateToProps)(Feedback);
