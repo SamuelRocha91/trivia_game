@@ -156,9 +156,9 @@ class Game extends React.Component {
       isDisabled,
     } = this.state;
     return (
-      <div id="divGame">
+      <div className="divGame">
         <Header />
-        <h1 id="headOneGame">Página do Game</h1>
+        <h1 className="headOneGame">Página do Game</h1>
         { questionCurrent.length > 0 && (
           <>
             <h3 className="questionCategory" data-testid="question-category">

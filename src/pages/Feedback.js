@@ -32,8 +32,8 @@ class Feedback extends Component {
       <div id="divGame">
         <Header />
         {assertions < three
-          ? <p id="couldParag" data-testid="feedback-text">Could be better...</p>
-          : <p id="wellParag" data-testid="feedback-text">Well Done!</p>}
+          ? <p className="couldParag" data-testid="feedback-text">Could be better...</p>
+          : <p className="wellParag" data-testid="feedback-text">Well Done!</p>}
         <p className="total">
           Total Score:
           {' '}

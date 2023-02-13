@@ -13,7 +13,7 @@ class Ranking extends Component {
     const sortLocalStorage = readLocalStorage.sort((a, b) => b.score - a.score);
     return (
       <div id="divGame">
-        <h2 id="headRanking" data-testid="ranking-title">Ranking</h2>
+        <h2 className="headRanking" data-testid="ranking-title">Ranking</h2>
         {sortLocalStorage.map((element, index) => (
           <div key="3">
             <img src={ element.picture } alt={ `Imagem do Jogador ${index + 1}` } />

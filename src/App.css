@@ -3,55 +3,56 @@ body {
 }
 
 /* Página de Login */
-
-#headOneLogin {
+.headOneLogin {
   color: aquamarine;
+  font-family: Arial , Helvetica , sans-serif;
   font-size: 80px;
-  text-align: center;
+  margin-bottom: 0 px;
   margin-top: 80px;
-  font-family:Arial, Helvetica, sans-serif;
-  margin-bottom: 0px;
+  text-align: center;
+
 }
 
 .divInput {
-  display: flex;
-  text-align: center;
-  padding: 20px;
-  margin: 100px 400px;
-  flex-direction: column;
-  border-radius: 10px;
   background-color: #c4c4c4;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  margin: 100px 400px;
+  padding: 20px;
+  text-align: center;
 }
 
 .buttonLogin {
-  margin: 5px 150px;
   background-color: rgb(58, 219, 162);
   border-radius: 5px;
+  margin: 5px 150px;
+
 }
 
 input {
-  margin: 3px;
-  border: 1px solid #E1E5EB;
+  border: 1px solid#E1E5EB;
   border-radius: 5px;
+  margin: 3px;
   text-align: center;
 }
 
 /* Página de game */
-
-#divGame {
-  display: flex;
-  text-align: center;
-  padding: 20px;
-  margin: 100px 400px;
-  flex-direction: column;
-  border-radius: 10px;
+.divGame {
   background-color: #c4c4c4;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  margin: 100px 400px;
+  padding: 20px;
+  text-align: center;
+
 }
 
-#headOneGame {
-  font-size: 40px;
-  font-family: Arial, Helvetica, sans-serif;
+.headOneGame {
   color: rgb(53, 146, 115);
+  font-family: Arial , Helvetica , sans-serif;
+  font-size: 40px;
 }
 
 .questionCategory {
@@ -59,51 +60,49 @@ input {
 }
 
 .questionAsk {
-  font-size: 20px;
-  margin-bottom: 30px;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   background-color: #eee9e9ca;
   border-radius: 10px;
+  font-family: Lucida Sans , Lucida Grande , Geneva , Verdana , sans-serif;
+  font-size: 20px;
+  margin-bottom: 30px;
   padding: 10px;
 }
 
 .buttonGame {
-  width: 300px;
-  display: flex;
-  font-size: 15px;
   background-color: rgb(231, 238, 235);
   border-radius: 6px;
-  padding: 5px;
+  display: flex;
+  font-size: 15px;
   margin: 1px;
+  padding: 5px;
+  width: 300px;
 }
 
 .buttonNext {
-    background-color: rgb(58, 219, 162);
-    border-radius: 5px;
-    font-size: 25px;
+  background-color: rgb(58, 219, 162);
+  border-radius: 5px;
+  font-size: 25px;
 }
 
 /* Página de Feedback */
-
-#couldParag {
-  font-size: 30px;
+.couldParag {
   color: #f03b3b;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial , Helvetica , sans-serif;
+  font-size: 30px;
 }
 
-#wellParag {
-  font-size: 30px;
+.wellParag {
   color: #126f05;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial , Helvetica , sans-serif;
+  font-size: 30px;
 }
 
 .total {
+  font-family: Arial , Helvetica , sans-serif;
   font-size: 22px;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* Página de Ranking  */
-
-#headRanking {
+.headRanking {
   font-size: 60px;
 }

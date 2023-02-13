@@ -42,7 +42,7 @@ class Login extends React.Component {
 
     return (
       <>
-        <h1 id="headOneLogin">Trivia Game</h1>
+        <h1 className="headOneLogin">Trivia Game</h1>
         <div className="divInput">
           <label>
             <input
