@@ -41,6 +41,7 @@ class Game extends React.Component {
         this.setState((prevState) => ({
           time: prevState.time - 1,
           isDisabled: true,
+          color: true,
         }));
       }
     }, TIMER);
@@ -109,7 +110,7 @@ class Game extends React.Component {
     if (id.includes('correct-answer')) {
       points = ten + (time * this.pointsdificulty(difficulty));
     }
-    this.setState({ color: true });
+    this.setState({ color: true, isDisabled: true });
     dispatch(ACTION_SCORE(points));
     clearInterval(this.timer);
   };
@@ -156,32 +157,45 @@ class Game extends React.Component {
       isDisabled,
     } = this.state;
     return (
-      <div>
+      <div className="divGame">
         <Header />
-        <h1>Página do Game</h1>
+        <h1 className="headOneGame">Página do Game</h1>
+        <img src="src/trivia.png" alt="logo trivia" />
         { questionCurrent.length > 0 && (
           <>
-            <h3 data-testid="question-category">{questions[index].category}</h3>
-            <h3 data-testid="question-text">{questions[index].question}</h3>
-          </>)}
-        { questionCurrent.length > 0 && questionCurrent
-          .map(({ answer, id, borderColor, difficulty }) => (
-            <div
-              data-testid="answer-options"
-              key={ id }
+            <h3 className="questionCategory" data-testid="question-category">
+              {questions[index].category}
+            </h3>
+            <h3
+              className="questionAsk"
+              data-testid="question-text"
             >
-              <button
-                style={ { border: color && borderColor } }
-                disabled={ isDisabled }
-                data-testid={ id }
-                onClick={ () => this.saveAnswer(id, difficulty) }
+              {questions[index].question}
+
+            </h3>
+          </>)}
+        <div className="buttons-resp">
+          { questionCurrent.length > 0 && questionCurrent
+            .map(({ answer, id, borderColor, difficulty }) => (
+              <div
+                data-testid="answer-options"
+                key={ id }
               >
-                { answer }
-              </button>
-            </div>))}
+                <button
+                  className="buttonGame"
+                  style={ { border: color && borderColor } }
+                  disabled={ isDisabled }
+                  data-testid={ id }
+                  onClick={ () => this.saveAnswer(id, difficulty) }
+                >
+                  { answer }
+                </button>
+              </div>))}
+        </div>
         <p>{ time }</p>
         {color && (
           <button
+            className="buttonNext"
             onClick={ this.nextQuestion }
             data-testid="btn-next"
           >

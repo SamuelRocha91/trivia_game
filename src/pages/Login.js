@@ -41,45 +41,51 @@ class Login extends React.Component {
     const { history } = this.props;
 
     return (
-      <div>
-        <label>
-          <input
-            data-testid="input-player-name"
-            name="name"
-            type="text"
-            placeholder="Escreva seu nome"
-            value={ name }
-            onChange={ this.handleChange }
-          />
-        </label>
+      <>
+        <h1 className="headOneLogin">Trivia Game</h1>
+        <div className="divInput">
+          <label>
+            <input
+              data-testid="input-player-name"
+              name="name"
+              type="text"
+              placeholder="Escreva seu nome"
+              value={ name }
+              onChange={ this.handleChange }
+            />
+          </label>
 
-        <label>
-          <input
-            data-testid="input-gravatar-email"
-            type="email"
-            name="email"
-            placeholder="Escreva seu email"
-            value={ email }
-            onChange={ this.handleChange }
-          />
-        </label>
+          <label>
+            <input
+              data-testid="input-gravatar-email"
+              type="email"
+              name="email"
+              placeholder="Escreva seu email"
+              value={ email }
+              onChange={ this.handleChange }
+            />
+          </label>
 
-        <button
-          data-testid="btn-play"
-          disabled={ isDisabled }
-          onClick={ this.handleClick }
-        >
-          PLAY
-        </button>
+          <button
+            className="buttonLogin"
+            data-testid="btn-play"
+            disabled={ isDisabled }
+            onClick={ this.handleClick }
+          >
+            PLAY
+          </button>
 
-        <button
-          data-testid="btn-settings"
-          type="button"
-          onClick={ () => history.push('/settings') }
-        >
-          Settings
-        </button>
-      </div>
+          <button
+            className="buttonLogin"
+            data-testid="btn-settings"
+            type="button"
+            onClick={ () => history.push('/settings') }
+          >
+            Settings
+          </button>
+        </div>
+
+      </>
     );
   }
 }

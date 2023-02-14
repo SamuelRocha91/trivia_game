@@ -29,22 +29,23 @@ class Feedback extends Component {
     const { assertions, score, history } = this.props;
     const three = 3;
     return (
-      <div>
+      <div id="divGame">
         <Header />
         {assertions < three
-          ? <p data-testid="feedback-text">Could be better...</p>
-          : <p data-testid="feedback-text">Well Done!</p>}
-        <p>
+          ? <p className="couldParag" data-testid="feedback-text">Could be better...</p>
+          : <p className="wellParag" data-testid="feedback-text">Well Done!</p>}
+        <p className="total">
           Total Score:
           {' '}
           <span data-testid="feedback-total-score">{score}</span>
         </p>
-        <p>
+        <p className="total">
           Total Question:
           {' '}
           <span data-testid="feedback-total-question">{assertions}</span>
         </p>
         <button
+          className="buttonLogin"
           data-testid="btn-ranking"
           onClick={ this.onClick }
         >
@@ -52,6 +53,7 @@ class Feedback extends Component {
 
         </button>
         <button
+          className="buttonLogin"
           onClick={ () => history.push('/') }
           data-testid="btn-play-again"
         >
