@@ -2,15 +2,12 @@ body {
   background-color: #2e2e2e;
 }
 
-/* Página de Login */
 .headOneLogin {
   color: aquamarine;
   font-family: Arial , Helvetica , sans-serif;
   font-size: 80px;
-  margin-bottom: 0 px;
   margin-top: 80px;
   text-align: center;
-
 }
 
 .divInput {
@@ -18,7 +15,8 @@ body {
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  margin: 100px 400px;
+  height: 200px;
+  margin: 40px 400px;
   padding: 20px;
   text-align: center;
 }
@@ -26,15 +24,19 @@ body {
 .buttonLogin {
   background-color: rgb(58, 219, 162);
   border-radius: 5px;
+  font-size: 20px;
   margin: 5px 150px;
-
+  padding: 15px;
 }
 
 input {
   border: 1px solid#E1E5EB;
   border-radius: 5px;
+  font-size: 20px;
   margin: 3px;
+  padding: 15px;
   text-align: center;
+  width: 66%;
 }
 
 /* Página de game */
