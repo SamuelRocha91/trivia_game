@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import he from 'he';
 import { connect } from 'react-redux';
 import Header from '../components/Header';
 import { ACTION_SCORE } from '../redux/actions';
@@ -160,7 +161,7 @@ class Game extends React.Component {
     return (
       <div className="divGame">
         <Header />
-        <h1 className="headOneGame">Página do Game</h1>
+        <h1 className="headOneGame">Game Page</h1>
         <div className="logo-trivia">
           <img src={ trivia } alt="logo trivia" />
         </div>
@@ -172,40 +173,43 @@ class Game extends React.Component {
             <h3
               className="questionAsk"
             >
-              {questions[index].question}
+              {he.decode(questions[index].question)}
 
             </h3>
           </>)}
         <div className="buttons-resp">
           { questionCurrent.length > 0 && questionCurrent
-            .map(({ answer, id, borderColor, difficulty }) => (
-              <div
-                data-testid="answer-options"
-                key={ id }
-              >
-                <button
-                  className="buttonGame"
-                  style={ { border: color && borderColor } }
-                  disabled={ isDisabled }
-                  data-testid={ id }
-                  onClick={ () => this.saveAnswer(id, difficulty) }
+            .map(({ answer, id, borderColor, difficulty }) => {
+              const decodedText = he.decode(answer);
+              return (
+                <div
+                  key={ id }
                 >
-                  { answer }
-                </button>
-              </div>))}
+                  <button
+                    className="buttonGame"
+                    style={ { border: color && borderColor } }
+                    disabled={ isDisabled }
+                    onClick={ () => this.saveAnswer(id, difficulty) }
+                  >
+                    {decodedText}
+                  </button>
+                </div>
+              );
+            })}
         </div>
         <p className="time-count">{ time }</p>
-        {color && (
-          <div>
-            <button
-              className="buttonNext"
-              onClick={ this.nextQuestion }
-              data-testid="btn-next"
-            >
-              Next
-            </button>
-          </div>
-        )}
+        <div>
+          <button
+            style={ {
+              opacity: color ? 1 : 0,
+              transition: 'opacity 1s ease-in-out',
+            } }
+            className="buttonNext"
+            onClick={ this.nextQuestion }
+          >
+            Next
+          </button>
+        </div>
       </div>
     );
   }

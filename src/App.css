@@ -164,7 +164,6 @@ input {
   font-size: 22px;
 }
 
-/* Página de Ranking  */
 .headRanking {
   font-size: 60px;
 }
@@ -172,4 +171,36 @@ input {
 .buttonLogin:hover {
   cursor: pointer;
   filter: brightness(1.6);
+}
+
+.ranking-container {
+  background-color: rgb(231, 238, 235);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.ranking-container h2 {
+  text-align: center;
+}
+
+.card-competidor {
+  border: 1px solid #c4c4c4;
+  box-shadow: 1px 4px 8px #c4c4c4;
+  padding: 20px;
+  width: 250px;
+}
+
+
+.competidores {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 5px;
+}
+
+.turn-to-home {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
