@@ -38,15 +38,13 @@ class Login extends React.Component {
 
   render() {
     const { name, email, isDisabled } = this.state;
-    const { history } = this.props;
-
     return (
       <>
         <h1 className="headOneLogin">Trivia Game</h1>
         <div className="divInput">
           <label>
             <input
-              data-testid="input-player-name"
+              className="data-input"
               name="name"
               type="text"
               placeholder="Escreva seu nome"
@@ -57,7 +55,6 @@ class Login extends React.Component {
 
           <label>
             <input
-              data-testid="input-gravatar-email"
               type="email"
               name="email"
               placeholder="Escreva seu email"
@@ -68,20 +65,10 @@ class Login extends React.Component {
 
           <button
             className="buttonLogin"
-            data-testid="btn-play"
             disabled={ isDisabled }
             onClick={ this.handleClick }
           >
             PLAY
-          </button>
-
-          <button
-            className="buttonLogin"
-            data-testid="btn-settings"
-            type="button"
-            onClick={ () => history.push('/settings') }
-          >
-            Settings
           </button>
         </div>
 

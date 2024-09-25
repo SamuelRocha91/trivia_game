@@ -2,15 +2,12 @@ body {
   background-color: #2e2e2e;
 }
 
-/* Página de Login */
 .headOneLogin {
   color: aquamarine;
   font-family: Arial , Helvetica , sans-serif;
   font-size: 80px;
-  margin-bottom: 0 px;
   margin-top: 80px;
   text-align: center;
-
 }
 
 .divInput {
@@ -18,7 +15,8 @@ body {
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  margin: 100px 400px;
+  height: 200px;
+  margin: 40px 400px;
   padding: 20px;
   text-align: center;
 }
@@ -26,27 +24,62 @@ body {
 .buttonLogin {
   background-color: rgb(58, 219, 162);
   border-radius: 5px;
+  font-size: 20px;
   margin: 5px 150px;
-
+  padding: 15px;
 }
 
 input {
   border: 1px solid#E1E5EB;
   border-radius: 5px;
+  font-size: 20px;
   margin: 3px;
+  padding: 15px;
   text-align: center;
+  width: 66%;
 }
 
-/* Página de game */
 .divGame {
   background-color: #c4c4c4;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  margin: 100px 400px;
+  margin: 50px 300px;
   padding: 20px;
   text-align: center;
+}
 
+.logo-trivia img {
+  height: 200px;
+  width: 400px;
+}
+
+.header-content {
+  align-items: center;
+  display: flex;
+  gap: 30px;
+  justify-content: space-evenly;
+}
+
+.profile {
+  align-items: center;
+  display: flex;
+  gap: 15px;
+}
+
+.profile h2 {
+  font-size: 30px;
+}
+
+.profile img {
+  height: 30px;
+  width: 40px;
+}
+
+.header-content p {
+  color: #126f05;
+  font-size: 25px;
+  font-weight: 700;
 }
 
 .headOneGame {
@@ -85,13 +118,35 @@ input {
   width: 300px;
 }
 
-.buttonNext {
-  background-color: rgb(58, 219, 162);
-  border-radius: 5px;
+.time-count {
+  color: red;
   font-size: 25px;
+  font-weight: 700;
 }
 
-/* Página de Feedback */
+.buttonNext {
+  background-color: rgb(58, 219, 162);
+  border-radius: 15px;
+  font-size: 25px;
+  padding: 10px;
+  width: 25%;
+}
+
+.card-feedback {
+  background-color: rgb(231, 238, 235);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.feedback-content {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5px;
+}
+
 .couldParag {
   color: #f03b3b;
   font-family: Arial , Helvetica , sans-serif;
@@ -109,7 +164,43 @@ input {
   font-size: 22px;
 }
 
-/* Página de Ranking  */
 .headRanking {
   font-size: 60px;
+}
+
+.buttonLogin:hover {
+  cursor: pointer;
+  filter: brightness(1.6);
+}
+
+.ranking-container {
+  background-color: rgb(231, 238, 235);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.ranking-container h2 {
+  text-align: center;
+}
+
+.card-competidor {
+  border: 1px solid #c4c4c4;
+  box-shadow: 1px 4px 8px #c4c4c4;
+  padding: 20px;
+  width: 250px;
+}
+
+
+.competidores {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 5px;
+}
+
+.turn-to-home {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
