@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Header from '../components/Header';
 import { ACTION_SCORE } from '../redux/actions';
+import trivia from '../trivia.png';
 
 const URL_BASE = 'https://opentdb.com/api.php?amount=5&token=';
 const TIMER = 1000;
@@ -160,15 +161,16 @@ class Game extends React.Component {
       <div className="divGame">
         <Header />
         <h1 className="headOneGame">Página do Game</h1>
-        <img src="src/trivia.png" alt="logo trivia" />
+        <div className="logo-trivia">
+          <img src={ trivia } alt="logo trivia" />
+        </div>
         { questionCurrent.length > 0 && (
           <>
-            <h3 className="questionCategory" data-testid="question-category">
-              {questions[index].category}
+            <h3 className="questionCategory">
+              {`Category: ${questions[index].category}`}
             </h3>
             <h3
               className="questionAsk"
-              data-testid="question-text"
             >
               {questions[index].question}
 
@@ -192,15 +194,17 @@ class Game extends React.Component {
                 </button>
               </div>))}
         </div>
-        <p>{ time }</p>
+        <p className="time-count">{ time }</p>
         {color && (
-          <button
-            className="buttonNext"
-            onClick={ this.nextQuestion }
-            data-testid="btn-next"
-          >
-            Next
-          </button>
+          <div>
+            <button
+              className="buttonNext"
+              onClick={ this.nextQuestion }
+              data-testid="btn-next"
+            >
+              Next
+            </button>
+          </div>
         )}
       </div>
     );

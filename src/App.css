@@ -39,16 +39,47 @@ input {
   width: 66%;
 }
 
-/* Página de game */
 .divGame {
   background-color: #c4c4c4;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  margin: 100px 400px;
+  margin: 50px 300px;
   padding: 20px;
   text-align: center;
+}
 
+.logo-trivia img {
+  height: 200px;
+  width: 400px;
+}
+
+.header-content {
+  align-items: center;
+  display: flex;
+  gap: 30px;
+  justify-content: space-evenly;
+}
+
+.profile {
+  align-items: center;
+  display: flex;
+  gap: 15px;
+}
+
+.profile h2 {
+  font-size: 30px;
+}
+
+.profile img {
+  height: 30px;
+  width: 40px;
+}
+
+.header-content p {
+  color: #126f05;
+  font-size: 25px;
+  font-weight: 700;
 }
 
 .headOneGame {
@@ -87,10 +118,18 @@ input {
   width: 300px;
 }
 
+.time-count {
+  color: red;
+  font-size: 25px;
+  font-weight: 700;
+}
+
 .buttonNext {
   background-color: rgb(58, 219, 162);
-  border-radius: 5px;
+  border-radius: 15px;
   font-size: 25px;
+  padding: 10px;
+  width: 25%;
 }
 
 /* Página de Feedback */
