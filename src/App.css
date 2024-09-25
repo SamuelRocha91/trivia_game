@@ -132,7 +132,21 @@ input {
   width: 25%;
 }
 
-/* Página de Feedback */
+.card-feedback {
+  background-color: rgb(231, 238, 235);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.feedback-content {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5px;
+}
+
 .couldParag {
   color: #f03b3b;
   font-family: Arial , Helvetica , sans-serif;
@@ -153,4 +167,9 @@ input {
 /* Página de Ranking  */
 .headRanking {
   font-size: 60px;
+}
+
+.buttonLogin:hover {
+  cursor: pointer;
+  filter: brightness(1.6);
 }

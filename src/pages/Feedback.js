@@ -29,36 +29,39 @@ class Feedback extends Component {
     const { assertions, score, history } = this.props;
     const three = 3;
     return (
-      <div id="divGame">
+      <div className="card-feedback" id="divGame">
         <Header />
-        {assertions < three
-          ? <p className="couldParag" data-testid="feedback-text">Could be better...</p>
-          : <p className="wellParag" data-testid="feedback-text">Well Done!</p>}
-        <p className="total">
-          Total Score:
-          {' '}
-          <span data-testid="feedback-total-score">{score}</span>
-        </p>
-        <p className="total">
-          Total Question:
-          {' '}
-          <span data-testid="feedback-total-question">{assertions}</span>
-        </p>
-        <button
-          className="buttonLogin"
-          data-testid="btn-ranking"
-          onClick={ this.onClick }
-        >
-          Ranking
-
-        </button>
-        <button
-          className="buttonLogin"
-          onClick={ () => history.push('/') }
-          data-testid="btn-play-again"
-        >
-          Play Again
-        </button>
+        <div className="feedback-content">
+          {assertions < three
+            ? <p className="couldParag" data-testid="feedback-text">Could be better...</p>
+            : <p className="wellParag" data-testid="feedback-text">Well Done!</p>}
+          <p className="total">
+            Total Score:
+            {' '}
+            <span data-testid="feedback-total-score">{score}</span>
+          </p>
+          <p className="total">
+            Total Question:
+            {' '}
+            <span data-testid="feedback-total-question">{assertions}</span>
+          </p>
+          <div>
+            <button
+              className="buttonLogin"
+              data-testid="btn-ranking"
+              onClick={ this.onClick }
+            >
+              Ranking
+            </button>
+            <button
+              className="buttonLogin"
+              onClick={ () => history.push('/') }
+              data-testid="btn-play-again"
+            >
+              Play Again
+            </button>
+          </div>
+        </div>
       </div>
     );
   }
