@@ -6,18 +6,6 @@
 
 This project was developed as part of the Front-End module of the Web Development course at [Trybe](https://www.betrybe.com/). It is a trivia quiz game developed using **React** and **Redux**. The application consumes an external API to obtain questions and features a timer and scoring system based on the difficulty level of the questions.
 
-<details>
-  <summary><h2>📑 Summary</h2></summary>
-
-  - [Description](#description)
-  - [Technologies Used](#technologies-used)
-  - [Features](#features)
-  - [Installation](#installation)
-  - [How to Use](#how-to-use)
-  - [Running with Docker](#running-with-docker)
-  - [Agile Methodologies](#agile-methodologies)
-
-</details>
 
 <details>
   <summary><h2>📝 Description</h2></summary>
@@ -96,7 +84,7 @@ This project was developed as part of the Front-End module of the Web Developmen
 <details>
   <summary><h2>🚀 How to Use</h2></summary>
 
-  1. When starting the application, log in or generate an access token.
+  1. When starting the application, log in.
   2. Choose a category of questions and start the game.
   3. Answer the questions within the time limit.
   4. At the end of the game, you will be redirected to the feedback page to see your score.
