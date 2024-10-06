@@ -8,19 +8,6 @@
 Este projeto foi desenvolvido como parte do módulo de Front-End do curso de Desenvolvimento Web da [Trybe](https://www.betrybe.com/). Trata-se de um jogo de perguntas e respostas baseado no jogo **Trivia**, desenvolvido utilizando **React** e **Redux**. A aplicação consome uma API externa para obter as perguntas e apresenta um sistema de timer e pontuação baseado no nível de dificuldade das perguntas.
 
 <details>
-  <summary><h2>📑 Sumário</h2></summary>
-
-  - [Descrição](#descrição)
-  - [Tecnologias Utilizadas](#tecnologias-utilizadas)
-  - [Funcionalidades](#funcionalidades)
-  - [Instalação](#instalação)
-  - [Como Usar](#como-usar)
-  - [Executando com Docker](#executando-com-docker)
-  - [Metodologias Ágeis](#metodologias-ágeis)
-
-</details>
-
-<details>
   <summary><h2>📝 Descrição</h2></summary>
 
   O objetivo do projeto é proporcionar uma experiência interativa e divertida para os usuários ao responderem perguntas de diferentes níveis de dificuldade. A aplicação utiliza:
@@ -97,7 +84,7 @@ Este projeto foi desenvolvido como parte do módulo de Front-End do curso de Des
 <details>
   <summary><h2>🚀 Como Usar</h2></summary>
 
-  1. Ao iniciar a aplicação, faça login ou gere um token de acesso.
+  1. Ao iniciar a aplicação, faça login.
   2. Escolha uma categoria de perguntas e inicie o jogo.
   3. Responda às perguntas dentro do tempo limite.
   4. Ao final do jogo, você será redirecionado para a página de feedback e poderá ver sua pontuação.
